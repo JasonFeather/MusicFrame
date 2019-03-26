@@ -9,7 +9,14 @@
 
 # How to Use:
 
-#### Step One: Add `CoverFlowView` to your project
+#### Step One: Add `MusicFrame` to your project
+
+```java
+   dependencies {
+   	        implementation 'com.github.JasonFeather:MusicFrame:1.0.0'
+   	}
+
+```
 
 1. Via XML:
 
