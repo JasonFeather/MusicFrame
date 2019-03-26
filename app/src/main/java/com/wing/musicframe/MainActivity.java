@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         MusicFactory musicFactory = new MusicFactory();
-         soudPool = musicFactory.getSoudPool(this);
+            soudPool = musicFactory.getSoudPool(this);
         ArrayList<String> strings = new ArrayList<>();
         strings.add("zhuan");
         soudPool.load(strings);
@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         }).start();
+
 
     }
 
