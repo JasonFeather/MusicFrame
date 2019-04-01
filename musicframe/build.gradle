@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-
+group='com.github.JasonFeather' // ××××代表你github名字
 android {
     compileSdkVersion 28
 
