@@ -6,8 +6,6 @@ import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.SoundPool;
 
-import com.wing.musicframe.R;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 

@@ -1,7 +1,5 @@
 package com.wing.musicframe.pool;
 
-import android.content.Context;
-
 import java.util.ArrayList;
 
 /**
@@ -11,7 +9,7 @@ import java.util.ArrayList;
  */
 
 public interface SoundPoolBase {
-    void load( ArrayList<String> list);
+    void load(ArrayList<String> list);
 
     void stop(String name);
 

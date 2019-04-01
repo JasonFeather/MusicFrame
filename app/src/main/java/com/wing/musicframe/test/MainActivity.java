@@ -1,4 +1,4 @@
-package com.wing.musicframe;
+package com.wing.musicframe.test;
 
 import android.media.AudioAttributes;
 import android.media.SoundPool;
@@ -7,7 +7,10 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+
+import com.wing.musicframe.MusicFactory;
 import com.wing.musicframe.pool.SoundPoolBase;
+import com.wing.musicframe.test.R;
 
 import java.util.ArrayList;
 
@@ -25,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         MusicFactory musicFactory = new MusicFactory();
+
             soudPool = musicFactory.getSoudPool(this);
         ArrayList<String> strings = new ArrayList<>();
         strings.add("zhuan");
@@ -40,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
                     try {
                         Thread.sleep(50);
                     }catch (Exception e){
-
                     }
                 }
 

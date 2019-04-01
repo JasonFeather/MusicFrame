@@ -22,5 +22,5 @@ public interface MyLifecycleObserver extends LifecycleObserver {
 
     @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
     void onLifecycleChanged(LifecycleOwner owner,
-                             Lifecycle.Event event);
+                            Lifecycle.Event event);
 }

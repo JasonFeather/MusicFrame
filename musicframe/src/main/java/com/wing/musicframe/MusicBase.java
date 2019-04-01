@@ -17,6 +17,6 @@ public interface MusicBase {
 
     void relaseMusic();
 
-    void setURLAndStart(String name,boolean isRepeat);
+    void setURLAndStart(String name, boolean isRepeat);
 
 }
