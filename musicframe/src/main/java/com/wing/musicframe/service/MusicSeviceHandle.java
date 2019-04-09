@@ -4,6 +4,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.os.Handler;
 import android.os.IBinder;
 
 import com.wing.musicframe.MusicBase;
@@ -23,7 +24,7 @@ public class MusicSeviceHandle implements MusicBase {
     private MusicSeviceHandle(){}
     private MusicSeviceHandle(Context context) {
         Intent intent = new Intent(context, MusicService.class);
-        context.getApplicationContext().bindService(intent,getConnection(),BIND_AUTO_CREATE);
+        context.bindService(intent,getConnection(),BIND_AUTO_CREATE);
     }
 
     public static MusicSeviceHandle getInstance(Context context) {
@@ -67,8 +68,20 @@ public class MusicSeviceHandle implements MusicBase {
     }
 
     @Override
-    public void setURLAndStart(String name,boolean isRepeat) {
-        musicBinder.setURLAndStart(name,isRepeat);
+    public void setURLAndStart(final String name,final boolean isRepeat) {
+        if(musicBinder==null){
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    if(musicBinder!=null){
+                        musicBinder.setURLAndStart(name,isRepeat);
+                    }
+                }
+            },150);
+
+        }else {
+            musicBinder.setURLAndStart(name,isRepeat);
+        }
     }
 
     private ServiceConnection getConnection() {

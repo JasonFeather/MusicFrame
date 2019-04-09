@@ -15,10 +15,11 @@ public class MediaPlayerImp implements MusicBase {
     MediaPlayer mediaPlayer;
     Context context;
     public MediaPlayerImp(){
-
+        mediaPlayer=new MediaPlayer();
     }
     public MediaPlayerImp(Context context){
         this.context=context;
+        mediaPlayer=new MediaPlayer();
     }
     @Override
     public void startMusic() {
