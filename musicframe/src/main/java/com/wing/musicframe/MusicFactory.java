@@ -15,7 +15,6 @@ import com.wing.musicframe.service.MusicSeviceHandle;
  */
 
 public class MusicFactory implements MusicFactoryInterface {
-
     @Override
     public MusicBase getNormalMusic(FragmentActivity context) {
         return new MediaPlayerHandle(context);

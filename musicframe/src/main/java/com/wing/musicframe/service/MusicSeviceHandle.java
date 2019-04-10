@@ -20,18 +20,17 @@ import static android.content.Context.BIND_AUTO_CREATE;
 public class MusicSeviceHandle implements MusicBase {
     private static MusicSeviceHandle musicSeviceHandle = null;
     private MusicBinder musicBinder;
-
-    private MusicSeviceHandle(){}
     private MusicSeviceHandle(Context context) {
         Intent intent = new Intent(context, MusicService.class);
-        context.bindService(intent,getConnection(),BIND_AUTO_CREATE);
+        context.bindService(intent, getConnection(), BIND_AUTO_CREATE);
     }
 
     public static MusicSeviceHandle getInstance(Context context) {
         if (musicSeviceHandle == null) {
             synchronized (MusicSeviceHandle.class) {
                 if (musicSeviceHandle == null) {
-                    return new MusicSeviceHandle(context);
+                    musicSeviceHandle = new MusicSeviceHandle(context);
+                    return musicSeviceHandle;
                 }
             }
         } else {
@@ -64,23 +63,23 @@ public class MusicSeviceHandle implements MusicBase {
 
     @Override
     public void relaseMusic() {
-    musicBinder.relaseMusic();
+        musicBinder.relaseMusic();
     }
 
     @Override
-    public void setURLAndStart(final String name,final boolean isRepeat) {
-        if(musicBinder==null){
+    public void setURLAndStart(final String name, final boolean isRepeat) {
+        if (musicBinder == null) {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    if(musicBinder!=null){
-                        musicBinder.setURLAndStart(name,isRepeat);
+                    if (musicBinder != null) {
+                        musicBinder.setURLAndStart(name, isRepeat);
                     }
                 }
-            },150);
+            }, 150);
 
-        }else {
-            musicBinder.setURLAndStart(name,isRepeat);
+        } else {
+            musicBinder.setURLAndStart(name, isRepeat);
         }
     }
 

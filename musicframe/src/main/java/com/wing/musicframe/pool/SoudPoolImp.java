@@ -42,7 +42,8 @@ public class SoudPoolImp implements SoundPoolBase, SoundPool.OnLoadCompleteListe
         if (soudPoolImp == null) {
             synchronized (SoudPoolImp.class) {
                 if (soudPoolImp == null) {
-                    return new SoudPoolImp(context);
+                    soudPoolImp=new SoudPoolImp(context);
+                    return soudPoolImp;
                 }
             }
         }
