@@ -33,7 +33,9 @@ public class MediaPlayerImp implements MusicBase {
 
     @Override
     public void parseMusic() {
-        mediaPlayer.pause();
+        if(mediaPlayer.isPlaying()){
+            mediaPlayer.pause();
+        }
     }
 
     @Override

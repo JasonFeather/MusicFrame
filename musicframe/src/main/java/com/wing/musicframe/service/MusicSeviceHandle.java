@@ -54,7 +54,7 @@ public class MusicSeviceHandle implements MusicBase {
 
     @Override
     public void parseMusic() {
-
+        musicBinder.parseMusic();
     }
 
     @Override
@@ -64,7 +64,7 @@ public class MusicSeviceHandle implements MusicBase {
 
     @Override
     public void relaseMusic() {
-
+    musicBinder.relaseMusic();
     }
 
     @Override

@@ -36,7 +36,6 @@ public class MusicBinder extends Binder implements MusicBase {
 
     @Override
     public void initMusic() {
-
     }
 
     @Override
