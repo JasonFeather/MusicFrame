@@ -12,6 +12,7 @@ public interface SoundPoolBase {
     void load(ArrayList<String> list);
 
     void stop(String name);
+    void stop(int id);
 
     void pause(String name);
 
@@ -27,5 +28,7 @@ public interface SoundPoolBase {
 
     void setVolume(String name, float leftVolume, float rightVolume);
 
-    void playSound(String name, int number);
+    int playSound(String name, int number);
+
+    void stopAll();
 }

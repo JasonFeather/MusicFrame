@@ -22,6 +22,8 @@ public class SoudPoolImp implements SoundPoolBase, SoundPool.OnLoadCompleteListe
     HashMap<String, Integer> sounddata=new HashMap<>();
     private boolean isLoaded;
 
+    private ArrayList<Integer>  playSoudIdList=new ArrayList<>();
+
     private SoudPoolImp() {
 
     }
@@ -66,6 +68,11 @@ public class SoudPoolImp implements SoundPoolBase, SoundPool.OnLoadCompleteListe
     }
 
     @Override
+    public void stop(int id) {
+        mSoundPoll.stop(id);
+    }
+
+    @Override
     public void pause(String name) {
         mSoundPoll.pause(sounddata.get(name));
     }
@@ -101,20 +108,31 @@ public class SoudPoolImp implements SoundPoolBase, SoundPool.OnLoadCompleteListe
     }
 
     @Override
-    public void playSound(String name, int number) {
+    public int playSound(String name, int number) {
         if(isLoaded){
             AudioManager am = (AudioManager) mContext
                     .getSystemService(Context.AUDIO_SERVICE);
             float audioMaxVolumn = am.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
             float volumnCurrent = am.getStreamVolume(AudioManager.STREAM_MUSIC);
             float volumnRatio = volumnCurrent / audioMaxVolumn;
-            mSoundPoll.play(sounddata.get(name),
+            int play = mSoundPoll.play(sounddata.get(name),
                     volumnRatio,// 左声道音量
                     volumnRatio,// 右声道音量
                     1, // 优先级
                     number,// 循环播放次数
                     1);// 回放速度，该值在0.5-2.0之间 1为正常速度
+            playSoudIdList.add(play);
+            return play;
         }
+        return 0;
+    }
+
+    @Override
+    public void stopAll() {
+        for (int i = 0; i <playSoudIdList.size() ; i++) {
+            mSoundPoll.stop(playSoudIdList.get(i));
+        }
+        playSoudIdList.clear();
     }
 
     @Override
