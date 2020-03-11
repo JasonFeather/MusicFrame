@@ -17,6 +17,8 @@ public interface MusicFactoryInterface {
 
     MusicBase getNormalMusic(Fragment context);
 
+    MusicBase getNormalMusic(Context context);
+
     MusicBase getServieMusic(Context context);
 
     SoundPoolBase getSoudPool(Context context);

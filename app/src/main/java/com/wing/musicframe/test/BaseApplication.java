@@ -15,10 +15,10 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-         MusicFactory musicFactory = new MusicFactory();
-        SoundPoolBase soudPool = musicFactory.getSoudPool(this);
-        ArrayList<String> strings = new ArrayList<>();
-        strings.add("music2");
-        soudPool.load(strings);
+//         MusicFactory musicFactory = new MusicFactory();
+//        SoundPoolBase soudPool = musicFactory.getSoudPool(this);
+//        ArrayList<String> strings = new ArrayList<>();
+//        strings.add("music2");
+//        soudPool.load(strings);
     }
 }
