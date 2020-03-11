@@ -26,11 +26,6 @@ public class MusicFactory implements MusicFactoryInterface {
     }
 
     @Override
-    public MusicBase getNormalMusic(Context context) {
-        return new MediaPlayerHandle(context);
-    }
-
-    @Override
     public MusicBase getServieMusic(Context context) {
         return MusicSeviceHandle.getInstance(context);
     }
