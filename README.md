@@ -13,7 +13,7 @@
 
 ```java
    dependencies {
-   	        implementation 'com.github.JasonFeather:MusicFrame:1.1.2'
+   	        implementation 'com.github.JasonFeather:MusicFrame:1.1.4'
    	}
 
 ```

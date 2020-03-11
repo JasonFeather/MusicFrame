@@ -2,6 +2,7 @@ package com.wing.musicframe;
 
 import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.LifecycleOwner;
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 
@@ -28,6 +29,11 @@ public class MediaPlayerHandle implements MyLifecycleObserver, MusicBase {
         context.getLifecycle().addObserver(this);
         fragment = context;
     }
+
+    public MediaPlayerHandle(Context context) {
+        mediaPlayerImp = new MediaPlayerImp(context);
+    }
+
 
     @Override
     public void onDestroy(LifecycleOwner owner) {
